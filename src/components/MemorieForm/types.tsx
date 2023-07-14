@@ -10,4 +10,7 @@ export interface MemorieFormProps {
   onSubmit: SubmitHandler<IMemorieFormInput>;
   register: UseFormRegister<IMemorieFormInput>;
   status: any;
+  handleImageChange: any;
+  image: string;
+  imageName: string;
 }

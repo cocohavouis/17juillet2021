@@ -1,13 +1,20 @@
 // Fonction pour télécharger le fichier
 export const uploadFile = async (file: string | Blob) => {
-  const url = "http://localhost:1337/upload";
+  const url = "http://localhost:1337/api/upload";
+
+  const jwt = localStorage.getItem("jwt");
 
   const formData = new FormData();
-  formData.append("files", file); // 'file' est le fichier à télécharger
+  const response = await fetch(file as string);
+  const blob = await response.blob();
+  formData.append("files", blob);
 
   try {
     const response = await fetch(url, {
       method: "POST",
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
       body: formData,
     });
 

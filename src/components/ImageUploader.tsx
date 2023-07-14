@@ -1,22 +1,16 @@
-import { useState } from "react";
 import { Box, Button, Image, Input } from "@chakra-ui/react";
-import { uploadFile } from "@/utils/uploadFile";
 
-const ImageUploader = () => {
-  const [image, setImage] = useState("");
-  const [imageName, setImageName] = useState("Aucune image sélectionnée");
+interface ImageUploaderProps {
+  handleImageChange: any;
+  image: string;
+  imageName: string;
+}
 
-  const handleImageChange = (e: any) => {
-    const file = e.target.files[0];
-    if (file) {
-      setImageName(file.name);
-      setImage(URL.createObjectURL(file));
-      uploadFile(file);
-    }
-  };
-
-  console.log(image);
-
+const ImageUploader: React.FC<ImageUploaderProps> = ({
+  handleImageChange,
+  image,
+  imageName,
+}) => {
   return (
     <Box width="100%" p={4} borderWidth={1} borderRadius="lg">
       <Box mb={4}>

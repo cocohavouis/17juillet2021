@@ -1,4 +1,4 @@
-import { Button, Flex, Textarea } from "@chakra-ui/react";
+import { Box, Button, Textarea } from "@chakra-ui/react";
 import ImageUploader from "../ImageUploader";
 import { MemorieFormProps } from "./types";
 
@@ -7,11 +7,18 @@ const MemorieForm: React.FC<MemorieFormProps> = ({
   onSubmit,
   register,
   status,
+  handleImageChange,
+  image,
+  imageName,
 }) => {
   return (
-    <div>
+    <Box margin="20px">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <ImageUploader />
+        <ImageUploader
+          handleImageChange={handleImageChange}
+          image={image}
+          imageName={imageName}
+        />
         <Textarea
           placeholder="Description"
           marginTop="4"
@@ -28,7 +35,7 @@ const MemorieForm: React.FC<MemorieFormProps> = ({
           Valider
         </Button>
       </form>
-    </div>
+    </Box>
   );
 };
 
