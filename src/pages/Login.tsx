@@ -20,7 +20,7 @@ function Login() {
 
   const login = async () => {
     axios
-      .post("http://localhost:1337/api/auth/local", {
+      .post(`${import.meta.env.VITE_APP_API_URL}api/auth/local`, {
         identifier: username,
         password: password,
       })

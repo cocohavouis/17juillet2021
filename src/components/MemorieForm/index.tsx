@@ -19,6 +19,7 @@ const MemorieForm: React.FC<MemorieFormProps> = ({
           image={image}
           imageName={imageName}
         />
+        <Textarea placeholder="Title" marginTop="4" {...register("title")} />
         <Textarea
           placeholder="Description"
           marginTop="4"

@@ -46,15 +46,16 @@ function CreateMemorie() {
         setStatus(Status.SUBMITTED);
         return;
       }
-      const img = await uploadFile(image);
+      const media = await uploadFile(image);
 
       await axios.post(
-        "http://localhost:1337/api/memories",
+        `${import.meta.env.VITE_APP_API_URL}api/memories`,
         {
           data: {
             date: new Date(),
-            desc: data.desc,
-            img: img.id,
+            description: data.desc,
+            media: media.id,
+            title: data.title,
           }, // C'est le corps de votre requête. Remplacez par vos données réelles.
         },
         {

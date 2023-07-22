@@ -1,6 +1,6 @@
 // Fonction pour télécharger le fichier
 export const uploadFile = async (file: string | Blob) => {
-  const url = "http://localhost:1337/api/upload";
+  const url = `${import.meta.env.VITE_APP_API_URL}api/upload`;
 
   const jwt = localStorage.getItem("jwt");
 
